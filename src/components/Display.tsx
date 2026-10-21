@@ -4,7 +4,7 @@ import { StyleSheet, Text, View } from "react-native";
 const Display = () => {
   return (
     <View style={styles.display}>
-      <Text style={styles.etiqueta}>RESULTADO</Text>
+      <Text style={styles.etiqueta}>0 + 0</Text>
       <Text style={styles.numero}>0</Text>
     </View>
   );

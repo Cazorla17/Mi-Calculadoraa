@@ -4,12 +4,17 @@ import { StyleSheet, Text, TouchableOpacity } from "react-native";
 interface BotonProps {
   texto: string;
   color?: "azul" | "gris" | "blanco";
+  ancho?: number;
 }
 
-const Boton = ({ texto, color = "blanco" }: BotonProps) => {
+const Boton = ({
+  texto,
+  color = "blanco",
+  ancho = 60,
+}: BotonProps) => {
   return (
     <TouchableOpacity
-      style={[styles.boton, styles[color]]}
+      style={[styles.boton, styles[color], { width: ancho }]}
     >
       <Text
         style={[
@@ -27,9 +32,8 @@ export default Boton;
 
 const styles = StyleSheet.create({
   boton: {
-    width: 60,
     height: 60,
-    borderRadius: 18,
+    borderRadius: 20,
     justifyContent: "center",
     alignItems: "center",
   },
