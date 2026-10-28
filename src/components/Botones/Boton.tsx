@@ -1,20 +1,27 @@
 
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+} from "react-native";
 
 interface BotonProps {
   texto: string;
   color?: "azul" | "gris" | "blanco";
   ancho?: number;
+  onPress?: () => void;
 }
 
 const Boton = ({
   texto,
   color = "blanco",
   ancho = 60,
+  onPress,
 }: BotonProps) => {
   return (
     <TouchableOpacity
       style={[styles.boton, styles[color], { width: ancho }]}
+      onPress={onPress}
     >
       <Text
         style={[

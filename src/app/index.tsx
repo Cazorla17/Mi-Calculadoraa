@@ -2,21 +2,37 @@
 import { StyleSheet, Text, View } from "react-native";
 import Display from "../components/Display";
 import Rejilla from "../components/Rejilla";
+import useCalculator from "../hooks/useCalculator";
 
 export default function Index() {
+  const {
+    display,
+    escribirNumero,
+    escribirOperador,
+    limpiar,
+    borrar,
+    cambiarSigno,
+    calcular,
+  } = useCalculator();
+
   return (
     <View style={styles.container}>
       <View style={styles.encabezado}>
-      <Text style={styles.titulo}>Calculadora</Text>
-    </View>
+        <Text style={styles.titulo}>Calculadora</Text>
+      </View>
 
-      <Display />
+      <Display display={display} />
 
       <Text style={styles.textoBotones}>OPERACIONES</Text>
 
-      <Rejilla />
-
-      
+      <Rejilla
+        escribirNumero={escribirNumero}
+        escribirOperador={escribirOperador}
+        limpiar={limpiar}
+        borrar={borrar}
+        cambiarSigno={cambiarSigno}
+        calcular={calcular}
+      />
     </View>
   );
 }
@@ -34,19 +50,10 @@ const styles = StyleSheet.create({
     marginBottom: 30,
     gap: 12,
   },
-  icono: {
-    fontSize: 35,
-    color: "#3478F6",
-  },
   titulo: {
     fontSize: 27,
     fontWeight: "bold",
     color: "#172033",
-  },
-  subtitulo: {
-    fontSize: 14,
-    color: "#7A879B",
-    marginTop: 3,
   },
   textoBotones: {
     fontSize: 12,
@@ -56,5 +63,4 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     letterSpacing: 2,
   },
-  
 });

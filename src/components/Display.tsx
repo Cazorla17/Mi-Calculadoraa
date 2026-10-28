@@ -1,11 +1,15 @@
 
 import { StyleSheet, Text, View } from "react-native";
 
-const Display = () => {
+interface DisplayProps {
+  display: string;
+}
+
+const Display = ({ display }: DisplayProps) => {
   return (
     <View style={styles.display}>
-      <Text style={styles.etiqueta}>0 + 0</Text>
-      <Text style={styles.numero}>0</Text>
+      <Text style={styles.etiqueta}>Calculadora</Text>
+      <Text style={styles.numero}>{display}</Text>
     </View>
   );
 };
@@ -15,7 +19,7 @@ export default Display;
 const styles = StyleSheet.create({
   display: {
     width: "100%",
-    height: 140,
+    minHeight: 140,
     backgroundColor: "#EAF2FF",
     borderRadius: 24,
     padding: 20,
@@ -30,9 +34,8 @@ const styles = StyleSheet.create({
     marginBottom: 8,
   },
   numero: {
-    fontSize: 44,
+    fontSize: 36,
     color: "#172033",
     fontWeight: "bold",
   },
 });
-
